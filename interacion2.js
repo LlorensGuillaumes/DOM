@@ -25,7 +25,7 @@ let elementoClaseRemove = document.querySelector('.fn-remove-me')
 const cars = ['Mazda 6', 'Ford fiesta', 'Audi A4', 'Toyota corola'];
 
 let newUlCars = document.createElement('ul')
-let containSelect = document.querySelector('div')
+let containSelect = document.querySelector("div")
 
 if (containSelect.getAttribute('data-function')==='printHere'){
     containSelect.appendChild(newUlCars)
@@ -52,18 +52,20 @@ const images = [
     for (const image of images) {
         
         let newDiv = document.createElement('div')
-        newDiv.setAttribute('class', 'imageContainer')
-        document.body.appendChild(newDiv)
+            newDiv.setAttribute('class', 'imageContainer')
+            document.body.appendChild(newDiv)
 
         let myTitle = document.createElement('h4')
-        let content = document.createTextNode(image.title)
-        let contentImage = document.createElement('img')
-        contentImage.setAttribute('src',image.imgUrl)
+            let content = document.createTextNode(image.title)
+            let contentImage = document.createElement('img')
+            contentImage.setAttribute('src',image.imgUrl)
 
         let OtherNewbutton = document.createElement('button')
-        OtherNewbutton.innerHTML = "Eliminar Este"
-        OtherNewbutton.setAttribute('id','DeleteThis')
-        OtherNewbutton.setAttribute('onclick', 'fncDeleteThis(index)')
+            OtherNewbutton.innerHTML = "Eliminar Este"
+            OtherNewbutton.setAttribute('id','DeleteThis')
+            // OtherNewbutton.setAttribute('onclick', 'fncDeleteThis(index)')
+
+            OtherNewbutton.addEventListener('click',fncDeleteThis )
        
 
 
@@ -102,10 +104,9 @@ function fncMyNewButtonClick(){
 //     OtherNewbutton.setAttribute('onclick', 'fncDeleteThis')
 //     contenedor.appendChild('OtherNewbutton')
     
-
-     function fncDeleteThis(index){
-        
-        alert('este es mi ' + index)
+   
+     function fncDeleteThis(e){
+        e.target.parentElement.remove()
      }
     
 
